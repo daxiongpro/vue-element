@@ -7,6 +7,9 @@
       <el-tab-pane label="用户测试" name="second">
         <test-user></test-user>
       </el-tab-pane>
+      <el-tab-pane label="test" name="third">
+        test1
+      </el-tab-pane>
 
     </el-tabs>
   </div>
@@ -15,7 +18,9 @@
 <script>
   import Nothing from '../common/Nothing.vue';
   import TestProject from './TestProject.vue';
-  import TestUser from './TestUser.vue'
+  import TestUser from './TestUser.vue';
+
+
   export default{
     data(){
       return {
@@ -25,7 +30,7 @@
     components:{
       Nothing,
       TestProject,
-      TestUser
+      TestUser,
     }
   }
 </script>
