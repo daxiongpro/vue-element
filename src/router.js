@@ -9,16 +9,18 @@ import App from './App.vue';
 import ProductsManagement from "./components/products/ProductsManagement.vue";
 
 import VideoPlayer from "./components/products/VideoPlayer.vue";
+import VueRouter from "vue-router";
 
 
-export default [{
+const routerMap = [{
     path: '/index',
     component: App,
-    children: [{
-        name: '测试管理',
-        path: 'testManagement',
-        component: TestManagement
-    },
+    children: [
+        {
+            name: '测试管理',
+            path: 'testManagement',
+            component: TestManagement
+        },
         {
             name: '用户分群管理',
             path: 'userGroup',
@@ -46,6 +48,28 @@ export default [{
 },
     {
         path: '*',
-        redirect: '/index/testManagement'
+        redirect: '/index/userGroup'
     }
 ]
+
+
+import product_list from "./mock/productsList.js";
+// const routers = []
+for(let i in product_list)
+{
+    const Obj = {
+        name:product_list[i].name,
+        path:'product' + product_list[i].id,
+        components: VideoPlayer
+    }
+    routerMap[0].children.push(Obj);
+
+}
+console.log(routerMap[0])
+
+const router = new VueRouter({routes: routerMap})
+// const router = new VueRouter()
+
+// router.addRoutes(routers)
+
+export default router

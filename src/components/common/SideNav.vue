@@ -6,9 +6,9 @@
         <template slot="title"><i class="el-icon-message"></i>系统管理</template>
         <el-menu-item-group>
           <template slot="title">产品管理</template>
-          <!--          <el-menu-item index="/index/testManagement">产品0</el-menu-item>-->
+                    <el-menu-item index="/index/testManagement">产品0</el-menu-item>
 
-          <li v-for="product in product_list" v-bind:key="product.id">
+          <li v-for="(product, index) in product_list" :key="index">
             <el-menu-item v-bind:index="['/index/product']+product.id">{{ product.name }}</el-menu-item>
           </li>
         </el-menu-item-group>
